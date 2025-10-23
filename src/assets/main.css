@@ -5,3 +5,11 @@ button {
 @theme {
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE и Edge */
+  scrollbar-width: none; /* Firefox */
+}

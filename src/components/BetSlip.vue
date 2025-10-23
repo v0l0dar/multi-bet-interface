@@ -1,16 +1,20 @@
 <template>
   <div
     :class="{
-      'md:sticky md:top-6 bg-white rounded-xl shadow-lg p-4 md:p-6': !isMobileView,
-      'bg-white rounded-none p-0': isMobileView,
+      'md:sticky md:top-6 bg-gray-900/50 backdrop-blur-lg rounded-xl shadow-lg shadow-cyan-500/10 border border-gray-800 p-4 md:p-6 transition-all duration-300':
+        !isMobileView,
+      'bg-gray-900 rounded-none p-0': isMobileView,
     }"
   >
-    <h2 v-if="!isMobileView" class="text-2xl font-bold mb-4">Bet Slip</h2>
+    <h2 v-if="!isMobileView" class="text-2xl font-bold mb-4 text-cyan-400">Bet Slip</h2>
 
-    <div v-if="betStore.success" class="border rounded p-4 bg-green-50">
-      <div class="bg-green-100 p-3 rounded mb-4">
-        <h3 class="font-bold">Bet Placed Successfully!</h3>
-        <p class="text-sm">Reference: #{{ betStore.betRef }}</p>
+    <div
+      v-if="betStore.success"
+      class="border border-cyan-500/30 rounded-lg p-4 bg-cyan-900/20 backdrop-blur-sm"
+    >
+      <div class="bg-cyan-500/20 p-3 rounded-lg mb-4 border border-cyan-500/30">
+        <h3 class="font-bold text-cyan-400">Bet Placed Successfully!</h3>
+        <p class="text-sm text-gray-400">Reference: #{{ betStore.betRef }}</p>
       </div>
       <BetSlipItem
         v-for="sel in betStore.lastSuccessfulSelections"
@@ -18,7 +22,7 @@
         :selection="sel"
         readonly
       />
-      <div class="border-t pt-3 mt-3 text-lg font-bold">
+      <div class="border-t border-gray-800 pt-3 mt-3 text-lg font-bold text-gray-200">
         <p>Total Stake: €{{ (betStore.lastSuccessfulBet?.totalStake ?? 0).toFixed(2) }}</p>
         <p>
           Total Potential Payout: €{{
@@ -28,7 +32,7 @@
       </div>
       <button
         @click="placeAnother"
-        class="w-full bg-blue-500 text-white py-2 rounded mt-4 hover:bg-blue-600"
+        class="w-full bg-linear-to-r from-cyan-600 to-cyan-500 text-white py-3 rounded-lg mt-4 hover:from-cyan-500 hover:to-cyan-400 transition-all duration-200 font-medium shadow-lg shadow-cyan-500/30"
       >
         Place Another Bet
       </button>
@@ -36,14 +40,20 @@
       <button
         v-if="isMobileView"
         @click="$emit('closeModal')"
-        class="w-full mt-2 py-2 rounded text-gray-600 border border-gray-300 hover:bg-gray-100"
+        class="w-full mt-2 py-3 rounded-lg text-gray-400 border border-gray-800 hover:bg-gray-800/50 hover:text-cyan-400 transition-all duration-200"
       >
         Close View
       </button>
     </div>
 
-    <div v-else :class="{ 'p-4': !isMobileView }">
-      <div v-if="selections.length === 0" class="text-gray-500 italic mb-4">
+    <div
+      v-else
+      :class="[
+        { 'p-4': !isMobileView },
+        'lg:max-h-[70vh] overflow-y-auto pr-2 lg:scrollbar-thin lg:scrollbar-thumb-gray-700 scrollbar-track-gray-900 no-scrollbar',
+      ]"
+    >
+      <div v-if="selections.length === 0" class="text-gray-500 italic mb-4 text-center py-8">
         No selections added yet
       </div>
       <BetSlipItem
@@ -54,44 +64,64 @@
       />
       <div v-if="selections.length > 0" class="mt-4 space-y-3">
         <div>
-          <label class="block text-sm font-medium mb-1">Stake per selection (€)</label>
+          <label class="block text-sm font-medium mb-2 text-cyan-400"
+            >Stake per selection (€)</label
+          >
           <input
             v-model.number="betStore.stake"
             type="number"
             min="1"
             max="1000"
-            class="w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            class="w-full border border-gray-800 bg-gray-900/50 text-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 hover:bg-gray-900"
           />
         </div>
-        <div v-if="validationErrors.length > 0" class="bg-red-50 border border-red-200 p-3 rounded">
-          <p class="font-medium text-red-800 mb-1">Please fix the following:</p>
-          <ul class="text-sm text-red-700 space-y-1">
-            <li v-for="err in validationErrors" :key="err">{{ err }}</li>
+        <div
+          v-if="validationErrors.length > 0"
+          class="bg-red-900/30 border border-red-500/50 p-3 rounded-lg backdrop-blur-sm"
+        >
+          <p class="font-medium text-red-400 mb-1">Please fix the following:</p>
+          <ul class="text-sm text-red-300 space-y-1">
+            <li v-for="err in validationErrors" :key="err">• {{ err }}</li>
           </ul>
         </div>
-        <label class="flex items-center">
-          <input v-model="betStore.acceptedTerms" type="checkbox" class="mr-2" />
-          <span class="text-sm">I accept the terms & conditions</span>
+        <label class="flex items-center group cursor-pointer">
+          <input
+            v-model="betStore.acceptedTerms"
+            type="checkbox"
+            class="mr-2 w-4 h-4 accent-cyan-500 cursor-pointer"
+          />
+          <span
+            class="text-sm text-gray-300 group-hover:text-cyan-400 transition-colors duration-200"
+            >I accept the terms & conditions</span
+          >
         </label>
         <button
           @click="submitAndClose"
           :disabled="!isValid || betStore.submitting"
           :class="[
-            'w-full py-2 rounded font-medium',
+            'w-full py-3 rounded-lg font-medium transition-all duration-200 transform',
             isValid && !betStore.submitting
-              ? 'bg-green-500 text-white hover:bg-green-600'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed',
+              ? 'bg-linear-to-r from-cyan-600 to-cyan-500 text-white hover:from-cyan-500 hover:to-cyan-400 shadow-lg shadow-cyan-500/30 hover:scale-[1.02]'
+              : 'bg-gray-800 text-gray-500 cursor-not-allowed',
           ]"
         >
           {{ betStore.submitting ? 'Placing Bet...' : `Place Bet (€${totalStake.toFixed(2)})` }}
         </button>
-        <div v-if="betStore.errorMsg" class="bg-red-100 border border-red-300 p-3 rounded mt-2">
-          <p class="text-red-800">{{ betStore.errorMsg }}</p>
-          <p class="text-sm mt-1">Please try again.</p>
+        <div
+          v-if="betStore.errorMsg"
+          class="bg-red-900/30 border border-red-500/50 p-3 rounded-lg mt-2 backdrop-blur-sm"
+        >
+          <p class="text-red-300">{{ betStore.errorMsg }}</p>
+          <p class="text-sm mt-1 text-red-400">Please try again.</p>
         </div>
-        <div v-if="selections.length > 0" class="border-t pt-3 text-sm font-medium">
+        <div
+          v-if="selections.length > 0"
+          class="border-t border-gray-800 pt-3 text-sm font-medium text-gray-300"
+        >
           <p>Total Stake: €{{ totalStake.toFixed(2) }}</p>
-          <p>Total Potential Payout: €{{ totalPotentialPayout.toFixed(2) }}</p>
+          <p class="text-cyan-400">
+            Total Potential Payout: €{{ totalPotentialPayout.toFixed(2) }}
+          </p>
         </div>
       </div>
     </div>
