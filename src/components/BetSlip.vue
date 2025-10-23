@@ -1,6 +1,12 @@
 <template>
-  <div class="sticky top-4">
-    <h2 class="text-2xl font-bold mb-4">Bet Slip</h2>
+  <div
+    :class="{
+      'md:sticky md:top-6 bg-white rounded-xl shadow-lg p-4 md:p-6': !isMobileView,
+      'bg-white rounded-none p-0': isMobileView,
+    }"
+  >
+    <h2 v-if="!isMobileView" class="text-2xl font-bold mb-4">Bet Slip</h2>
+
     <div v-if="betStore.success" class="border rounded p-4 bg-green-50">
       <div class="bg-green-100 p-3 rounded mb-4">
         <h3 class="font-bold">Bet Placed Successfully!</h3>
@@ -26,8 +32,17 @@
       >
         Place Another Bet
       </button>
+
+      <button
+        v-if="isMobileView"
+        @click="$emit('closeModal')"
+        class="w-full mt-2 py-2 rounded text-gray-600 border border-gray-300 hover:bg-gray-100"
+      >
+        Close View
+      </button>
     </div>
-    <div v-else class="border rounded p-4">
+
+    <div v-else :class="{ 'p-4': !isMobileView }">
       <div v-if="selections.length === 0" class="text-gray-500 italic mb-4">
         No selections added yet
       </div>
@@ -59,7 +74,7 @@
           <span class="text-sm">I accept the terms & conditions</span>
         </label>
         <button
-          @click="betStore.submit"
+          @click="submitAndClose"
           :disabled="!isValid || betStore.submitting"
           :class="[
             'w-full py-2 rounded font-medium',
@@ -82,11 +97,19 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import BetSlipItem from './BetSlipItem.vue'
 import { useGamesStore } from '@/stores/useGamesStore'
 import { useBetSlipStore } from '@/stores/useBetSlipStore'
+
+interface Props {
+  isMobileView?: boolean
+}
+
+const props = defineProps<Props>()
+const emit = defineEmits<{ closeModal: [] }>()
 
 const gamesStore = useGamesStore()
 const betStore = useBetSlipStore()
@@ -114,5 +137,12 @@ const totalPotentialPayout = betStore.totalPotentialPayout
 
 const placeAnother = () => {
   betStore.clear()
+  if (props.isMobileView) {
+    emit('closeModal')
+  }
+}
+
+const submitAndClose = async () => {
+  await betStore.submit()
 }
 </script>

@@ -315,6 +315,22 @@
       "acceptedTerms": true,
       "timestamp": "2025-10-23T14:33:05.295Z",
       "id": 4
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "home",
+          "odds": 1.95,
+          "stake": 10,
+          "potentialPayout": 19.5
+        }
+      ],
+      "totalStake": 10,
+      "totalPotentialPayout": 19.5,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T15:33:35.871Z",
+      "id": 5
     }
   ]
 }
