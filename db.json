@@ -331,6 +331,54 @@
       "acceptedTerms": true,
       "timestamp": "2025-10-23T15:33:35.871Z",
       "id": 5
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "draw",
+          "odds": 3.4,
+          "stake": "",
+          "potentialPayout": 0
+        }
+      ],
+      "totalStake": "0",
+      "totalPotentialPayout": 0,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T18:56:44.118Z",
+      "id": 6
+    },
+    {
+      "selections": [],
+      "totalStake": 0,
+      "totalPotentialPayout": 0,
+      "acceptedTerms": false,
+      "timestamp": "2025-10-23T18:56:47.261Z",
+      "id": 7
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "draw",
+          "odds": 3.4,
+          "stake": "",
+          "potentialPayout": 0
+        }
+      ],
+      "totalStake": "0",
+      "totalPotentialPayout": 0,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T19:00:32.458Z",
+      "id": 8
+    },
+    {
+      "selections": [],
+      "totalStake": 0,
+      "totalPotentialPayout": 0,
+      "acceptedTerms": false,
+      "timestamp": "2025-10-23T19:00:35.984Z",
+      "id": 9
     }
   ]
 }

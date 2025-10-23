@@ -83,7 +83,11 @@
               : 'bg-gray-300 text-gray-500 cursor-not-allowed',
           ]"
         >
-          {{ betStore.submitting ? 'Placing Bet...' : `Place Bet (€${totalStake.toFixed(2)})` }}
+          {{
+            betStore.submitting
+              ? 'Placing Bet...'
+              : `Place Bet (€${totalPotentialPayout.toFixed(2)})`
+          }}
         </button>
         <div v-if="betStore.errorMsg" class="bg-red-100 border border-red-300 p-3 rounded mt-2">
           <p class="text-red-800">{{ betStore.errorMsg }}</p>
@@ -103,6 +107,7 @@ import { computed } from 'vue'
 import BetSlipItem from './BetSlipItem.vue'
 import { useGamesStore } from '@/stores/useGamesStore'
 import { useBetSlipStore } from '@/stores/useBetSlipStore'
+import { storeToRefs } from 'pinia'
 
 interface Props {
   isMobileView?: boolean
@@ -118,9 +123,17 @@ const selections = computed(() => Array.from(betStore.selections))
 
 const validationErrors = computed(() => {
   const errs: string[] = []
+
+  const currentStake = betStore.stake
+
+  if (typeof currentStake !== 'number' || currentStake === null) {
+    errs.push('Stake amount is required')
+  } else if (currentStake < 1 || currentStake > 1000) {
+    errs.push('Stake must be between €1 and €1000')
+  }
+
   if (selections.value.length === 0) errs.push('Select at least 1 game')
   if (selections.value.length > 10) errs.push('Maximum 10 games per bet slip')
-  if (betStore.stake < 1 || betStore.stake > 1000) errs.push('Stake must be between €1 and €1000')
   if (!betStore.acceptedTerms) errs.push('Terms & conditions must be accepted')
   const hasFinished = selections.value.some((s) => {
     const g = gamesStore.games.find((g) => g.id === s.gameId)
@@ -132,8 +145,7 @@ const validationErrors = computed(() => {
 
 const isValid = computed(() => validationErrors.value.length === 0)
 
-const totalStake = betStore.totalStake
-const totalPotentialPayout = betStore.totalPotentialPayout
+const { totalStake, totalPotentialPayout } = storeToRefs(betStore)
 
 const placeAnother = () => {
   betStore.clear()

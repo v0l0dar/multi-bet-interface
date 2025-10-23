@@ -53,9 +53,13 @@ export const useBetSlipStore = defineStore('betSlip', () => {
   }
 
   watch(stake, (newStake) => {
+    const safeStake =
+      newStake === null || newStake === undefined || typeof newStake !== 'number' || newStake < 0
+        ? 0
+        : newStake
     selections.value.forEach((s) => {
-      s.stake = newStake
-      s.potentialPayout = newStake * s.odds
+      s.stake = safeStake
+      s.potentialPayout = safeStake * s.odds
     })
   })
 

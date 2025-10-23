@@ -41,7 +41,7 @@
         </div>
         <div class="text-lg">
           <span v-if="betStore.success">VIEW BET</span>
-          <span v-else> Place Bet (€{{ betStore.totalStake.toFixed(2) }} ) </span>
+          <span v-else> Place Bet (€{{ (betStore.totalStake ?? 0).toFixed(2) }} ) </span>
         </div>
       </button>
     </div>
