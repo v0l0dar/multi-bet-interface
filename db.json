@@ -6,7 +6,11 @@
       "homeTeam": "FC Aurora",
       "awayTeam": "United Rovers",
       "startTime": "2025-10-25T18:00:00Z",
-      "odds": { "homeWin": 1.95, "draw": 3.4, "awayWin": 3.8 },
+      "odds": {
+        "homeWin": 1.95,
+        "draw": 3.4,
+        "awayWin": 3.8
+      },
       "status": "upcoming"
     },
     {
@@ -15,7 +19,10 @@
       "homeTeam": "City Hoopers",
       "awayTeam": "River High",
       "startTime": "2025-10-24T20:30:00Z",
-      "odds": { "homeWin": 1.6, "awayWin": 2.4 },
+      "odds": {
+        "homeWin": 1.6,
+        "awayWin": 2.4
+      },
       "status": "upcoming"
     },
     {
@@ -24,7 +31,11 @@
       "homeTeam": "North Stars",
       "awayTeam": "East FC",
       "startTime": "2025-10-23T16:00:00Z",
-      "odds": { "homeWin": 2.1, "draw": 3.1, "awayWin": 3.0 },
+      "odds": {
+        "homeWin": 2.1,
+        "draw": 3.1,
+        "awayWin": 3
+      },
       "status": "live"
     },
     {
@@ -33,7 +44,10 @@
       "homeTeam": "A. Player",
       "awayTeam": "B. Challenger",
       "startTime": "2025-10-25T12:00:00Z",
-      "odds": { "homeWin": 1.4, "awayWin": 2.8 },
+      "odds": {
+        "homeWin": 1.4,
+        "awayWin": 2.8
+      },
       "status": "upcoming"
     },
     {
@@ -42,7 +56,11 @@
       "homeTeam": "Lakeside",
       "awayTeam": "Mountain FC",
       "startTime": "2025-10-20T18:00:00Z",
-      "odds": { "homeWin": 1.75, "draw": 3.5, "awayWin": 4.2 },
+      "odds": {
+        "homeWin": 1.75,
+        "draw": 3.5,
+        "awayWin": 4.2
+      },
       "status": "finished"
     },
     {
@@ -51,7 +69,10 @@
       "homeTeam": "Valley Kings",
       "awayTeam": "Coast Eagles",
       "startTime": "2025-10-24T19:00:00Z",
-      "odds": { "homeWin": 1.85, "awayWin": 2.05 },
+      "odds": {
+        "homeWin": 1.85,
+        "awayWin": 2.05
+      },
       "status": "upcoming"
     },
     {
@@ -60,7 +81,11 @@
       "homeTeam": "South Villa",
       "awayTeam": "East Borough",
       "startTime": "2025-10-26T20:00:00Z",
-      "odds": { "homeWin": 2.95, "draw": 3.1, "awayWin": 2.2 },
+      "odds": {
+        "homeWin": 2.95,
+        "draw": 3.1,
+        "awayWin": 2.2
+      },
       "status": "upcoming"
     },
     {
@@ -69,7 +94,10 @@
       "homeTeam": "Ice Blades",
       "awayTeam": "Polar Bears",
       "startTime": "2025-10-24T21:00:00Z",
-      "odds": { "homeWin": 2.1, "awayWin": 1.75 },
+      "odds": {
+        "homeWin": 2.1,
+        "awayWin": 1.75
+      },
       "status": "upcoming"
     },
     {
@@ -78,7 +106,11 @@
       "homeTeam": "Metro United",
       "awayTeam": "City Rangers",
       "startTime": "2025-10-23T14:00:00Z",
-      "odds": { "homeWin": 2.2, "draw": 3.0, "awayWin": 3.2 },
+      "odds": {
+        "homeWin": 2.2,
+        "draw": 3,
+        "awayWin": 3.2
+      },
       "status": "live"
     },
     {
@@ -87,7 +119,10 @@
       "homeTeam": "C. Aces",
       "awayTeam": "D. Serve",
       "startTime": "2025-10-27T10:00:00Z",
-      "odds": { "homeWin": 1.7, "awayWin": 2.15 },
+      "odds": {
+        "homeWin": 1.7,
+        "awayWin": 2.15
+      },
       "status": "upcoming"
     },
     {
@@ -96,7 +131,11 @@
       "homeTeam": "Greenfield",
       "awayTeam": "Harbor Town",
       "startTime": "2025-10-28T18:00:00Z",
-      "odds": { "homeWin": 1.55, "draw": 3.8, "awayWin": 5.0 },
+      "odds": {
+        "homeWin": 1.55,
+        "draw": 3.8,
+        "awayWin": 5
+      },
       "status": "upcoming"
     },
     {
@@ -105,7 +144,10 @@
       "homeTeam": "Downtown Ballers",
       "awayTeam": "Suburb Stars",
       "startTime": "2025-10-22T19:45:00Z",
-      "odds": { "homeWin": 1.95, "awayWin": 2.0 },
+      "odds": {
+        "homeWin": 1.95,
+        "awayWin": 2
+      },
       "status": "finished"
     },
     {
@@ -114,7 +156,11 @@
       "homeTeam": "River City",
       "awayTeam": "Old Town",
       "startTime": "2025-10-29T16:00:00Z",
-      "odds": { "homeWin": 2.5, "draw": 3.0, "awayWin": 2.8 },
+      "odds": {
+        "homeWin": 2.5,
+        "draw": 3,
+        "awayWin": 2.8
+      },
       "status": "upcoming"
     },
     {
@@ -123,7 +169,10 @@
       "homeTeam": "North Ice",
       "awayTeam": "South Storm",
       "startTime": "2025-10-24T17:30:00Z",
-      "odds": { "homeWin": 1.9, "awayWin": 2.1 },
+      "odds": {
+        "homeWin": 1.9,
+        "awayWin": 2.1
+      },
       "status": "upcoming"
     },
     {
@@ -132,7 +181,11 @@
       "homeTeam": "Academy",
       "awayTeam": "Proline",
       "startTime": "2025-10-30T18:30:00Z",
-      "odds": { "homeWin": 2.15, "draw": 3.25, "awayWin": 3.4 },
+      "odds": {
+        "homeWin": 2.15,
+        "draw": 3.25,
+        "awayWin": 3.4
+      },
       "status": "upcoming"
     },
     {
@@ -141,7 +194,10 @@
       "homeTeam": "Ocean Shooters",
       "awayTeam": "Desert Dribblers",
       "startTime": "2025-10-24T18:00:00Z",
-      "odds": { "homeWin": 1.5, "awayWin": 2.75 },
+      "odds": {
+        "homeWin": 1.5,
+        "awayWin": 2.75
+      },
       "status": "live"
     },
     {
@@ -150,7 +206,11 @@
       "homeTeam": "Union",
       "awayTeam": "County",
       "startTime": "2025-10-21T18:00:00Z",
-      "odds": { "homeWin": 1.85, "draw": 3.4, "awayWin": 4.0 },
+      "odds": {
+        "homeWin": 1.85,
+        "draw": 3.4,
+        "awayWin": 4
+      },
       "status": "finished"
     },
     {
@@ -159,7 +219,10 @@
       "homeTeam": "E. Smash",
       "awayTeam": "F. Return",
       "startTime": "2025-10-24T11:00:00Z",
-      "odds": { "homeWin": 1.95, "awayWin": 1.95 },
+      "odds": {
+        "homeWin": 1.95,
+        "awayWin": 1.95
+      },
       "status": "upcoming"
     },
     {
@@ -168,7 +231,11 @@
       "homeTeam": "Capital FC",
       "awayTeam": "Forest Rangers",
       "startTime": "2025-10-30T20:00:00Z",
-      "odds": { "homeWin": 2.0, "draw": 3.2, "awayWin": 3.6 },
+      "odds": {
+        "homeWin": 2,
+        "draw": 3.2,
+        "awayWin": 3.6
+      },
       "status": "upcoming"
     },
     {
@@ -177,9 +244,45 @@
       "homeTeam": "Glacier",
       "awayTeam": "Blizzard",
       "startTime": "2025-10-24T20:45:00Z",
-      "odds": { "homeWin": 2.25, "awayWin": 1.65 },
+      "odds": {
+        "homeWin": 2.25,
+        "awayWin": 1.65
+      },
       "status": "upcoming"
     }
   ],
-  "bets": []
+  "bets": [
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "home",
+          "odds": 1.95,
+          "stake": 10,
+          "potentialPayout": 19.5
+        }
+      ],
+      "totalStake": 10,
+      "totalPotentialPayout": 19.5,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T12:53:23.624Z",
+      "id": 1
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "away",
+          "odds": 3.8,
+          "stake": 102,
+          "potentialPayout": 387.59999999999997
+        }
+      ],
+      "totalStake": 102,
+      "totalPotentialPayout": 387.59999999999997,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T12:53:55.162Z",
+      "id": 2
+    }
+  ]
 }

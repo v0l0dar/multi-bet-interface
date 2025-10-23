@@ -5,5 +5,5 @@ export const axiosApi = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  baseURL: 'https://dog.ceo/api',
+  baseURL: 'http://localhost:3001',
 })
