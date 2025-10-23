@@ -1,0 +1,185 @@
+{
+  "games": [
+    {
+      "id": "g-001",
+      "sport": "Football",
+      "homeTeam": "FC Aurora",
+      "awayTeam": "United Rovers",
+      "startTime": "2025-10-25T18:00:00Z",
+      "odds": { "homeWin": 1.95, "draw": 3.4, "awayWin": 3.8 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-002",
+      "sport": "Basketball",
+      "homeTeam": "City Hoopers",
+      "awayTeam": "River High",
+      "startTime": "2025-10-24T20:30:00Z",
+      "odds": { "homeWin": 1.6, "awayWin": 2.4 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-003",
+      "sport": "Football",
+      "homeTeam": "North Stars",
+      "awayTeam": "East FC",
+      "startTime": "2025-10-23T16:00:00Z",
+      "odds": { "homeWin": 2.1, "draw": 3.1, "awayWin": 3.0 },
+      "status": "live"
+    },
+    {
+      "id": "g-004",
+      "sport": "Tennis",
+      "homeTeam": "A. Player",
+      "awayTeam": "B. Challenger",
+      "startTime": "2025-10-25T12:00:00Z",
+      "odds": { "homeWin": 1.4, "awayWin": 2.8 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-005",
+      "sport": "Football",
+      "homeTeam": "Lakeside",
+      "awayTeam": "Mountain FC",
+      "startTime": "2025-10-20T18:00:00Z",
+      "odds": { "homeWin": 1.75, "draw": 3.5, "awayWin": 4.2 },
+      "status": "finished"
+    },
+    {
+      "id": "g-006",
+      "sport": "Basketball",
+      "homeTeam": "Valley Kings",
+      "awayTeam": "Coast Eagles",
+      "startTime": "2025-10-24T19:00:00Z",
+      "odds": { "homeWin": 1.85, "awayWin": 2.05 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-007",
+      "sport": "Football",
+      "homeTeam": "South Villa",
+      "awayTeam": "East Borough",
+      "startTime": "2025-10-26T20:00:00Z",
+      "odds": { "homeWin": 2.95, "draw": 3.1, "awayWin": 2.2 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-008",
+      "sport": "Hockey",
+      "homeTeam": "Ice Blades",
+      "awayTeam": "Polar Bears",
+      "startTime": "2025-10-24T21:00:00Z",
+      "odds": { "homeWin": 2.1, "awayWin": 1.75 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-009",
+      "sport": "Football",
+      "homeTeam": "Metro United",
+      "awayTeam": "City Rangers",
+      "startTime": "2025-10-23T14:00:00Z",
+      "odds": { "homeWin": 2.2, "draw": 3.0, "awayWin": 3.2 },
+      "status": "live"
+    },
+    {
+      "id": "g-010",
+      "sport": "Tennis",
+      "homeTeam": "C. Aces",
+      "awayTeam": "D. Serve",
+      "startTime": "2025-10-27T10:00:00Z",
+      "odds": { "homeWin": 1.7, "awayWin": 2.15 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-011",
+      "sport": "Football",
+      "homeTeam": "Greenfield",
+      "awayTeam": "Harbor Town",
+      "startTime": "2025-10-28T18:00:00Z",
+      "odds": { "homeWin": 1.55, "draw": 3.8, "awayWin": 5.0 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-012",
+      "sport": "Basketball",
+      "homeTeam": "Downtown Ballers",
+      "awayTeam": "Suburb Stars",
+      "startTime": "2025-10-22T19:45:00Z",
+      "odds": { "homeWin": 1.95, "awayWin": 2.0 },
+      "status": "finished"
+    },
+    {
+      "id": "g-013",
+      "sport": "Football",
+      "homeTeam": "River City",
+      "awayTeam": "Old Town",
+      "startTime": "2025-10-29T16:00:00Z",
+      "odds": { "homeWin": 2.5, "draw": 3.0, "awayWin": 2.8 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-014",
+      "sport": "Hockey",
+      "homeTeam": "North Ice",
+      "awayTeam": "South Storm",
+      "startTime": "2025-10-24T17:30:00Z",
+      "odds": { "homeWin": 1.9, "awayWin": 2.1 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-015",
+      "sport": "Football",
+      "homeTeam": "Academy",
+      "awayTeam": "Proline",
+      "startTime": "2025-10-30T18:30:00Z",
+      "odds": { "homeWin": 2.15, "draw": 3.25, "awayWin": 3.4 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-016",
+      "sport": "Basketball",
+      "homeTeam": "Ocean Shooters",
+      "awayTeam": "Desert Dribblers",
+      "startTime": "2025-10-24T18:00:00Z",
+      "odds": { "homeWin": 1.5, "awayWin": 2.75 },
+      "status": "live"
+    },
+    {
+      "id": "g-017",
+      "sport": "Football",
+      "homeTeam": "Union",
+      "awayTeam": "County",
+      "startTime": "2025-10-21T18:00:00Z",
+      "odds": { "homeWin": 1.85, "draw": 3.4, "awayWin": 4.0 },
+      "status": "finished"
+    },
+    {
+      "id": "g-018",
+      "sport": "Tennis",
+      "homeTeam": "E. Smash",
+      "awayTeam": "F. Return",
+      "startTime": "2025-10-24T11:00:00Z",
+      "odds": { "homeWin": 1.95, "awayWin": 1.95 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-019",
+      "sport": "Football",
+      "homeTeam": "Capital FC",
+      "awayTeam": "Forest Rangers",
+      "startTime": "2025-10-30T20:00:00Z",
+      "odds": { "homeWin": 2.0, "draw": 3.2, "awayWin": 3.6 },
+      "status": "upcoming"
+    },
+    {
+      "id": "g-020",
+      "sport": "Hockey",
+      "homeTeam": "Glacier",
+      "awayTeam": "Blizzard",
+      "startTime": "2025-10-24T20:45:00Z",
+      "odds": { "homeWin": 2.25, "awayWin": 1.65 },
+      "status": "upcoming"
+    }
+  ],
+  "bets": []
+}
