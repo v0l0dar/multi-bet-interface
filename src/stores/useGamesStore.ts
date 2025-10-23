@@ -5,11 +5,11 @@ import { fetchGames } from '@/services/api'
 
 export const useGamesStore = defineStore('games', () => {
   const games = ref<Game[]>([])
-  const loading = ref(false)
+  const loading = ref<boolean>(false)
   const error = ref<string | null>(null)
 
-  const sportFilter = ref('all')
-  const statusFilter = ref('all')
+  const sportFilter = ref<'all' | Game['sport']>('all')
+  const statusFilter = ref<'all' | Game['status']>('all')
 
   const loadGames = async () => {
     loading.value = true

@@ -5,12 +5,12 @@ import { submitBet } from '@/services/api'
 
 export const useBetSlipStore = defineStore('betSlip', () => {
   const selections = ref<Selection[]>([])
-  const stake = ref(10)
-  const acceptedTerms = ref(false)
-  const submitting = ref(false)
-  const success = ref(false)
+  const stake = ref<number>(10)
+  const acceptedTerms = ref<boolean>(false)
+  const submitting = ref<boolean>(false)
+  const success = ref<boolean>(false)
   const betRef = ref<string | null>(null)
-  const errorMsg = ref('')
+  const errorMsg = ref<string>('')
 
   const addSelection = (gameId: string, betType: BetType, odds: number) => {
     const existingIndex = selections.value.findIndex((s) => s.gameId === gameId)
