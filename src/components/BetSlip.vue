@@ -83,11 +83,7 @@
               : 'bg-gray-300 text-gray-500 cursor-not-allowed',
           ]"
         >
-          {{
-            betStore.submitting
-              ? 'Placing Bet...'
-              : `Place Bet (€${totalPotentialPayout.toFixed(2)})`
-          }}
+          {{ betStore.submitting ? 'Placing Bet...' : `Place Bet (€${totalStake.toFixed(2)})` }}
         </button>
         <div v-if="betStore.errorMsg" class="bg-red-100 border border-red-300 p-3 rounded mt-2">
           <p class="text-red-800">{{ betStore.errorMsg }}</p>

@@ -379,6 +379,22 @@
       "acceptedTerms": false,
       "timestamp": "2025-10-23T19:00:35.984Z",
       "id": 9
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "draw",
+          "odds": 3.4,
+          "stake": 222,
+          "potentialPayout": 754.8
+        }
+      ],
+      "totalStake": 222,
+      "totalPotentialPayout": 754.8,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T19:34:39.358Z",
+      "id": 10
     }
   ]
 }
