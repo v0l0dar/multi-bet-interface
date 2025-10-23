@@ -283,6 +283,38 @@
       "acceptedTerms": true,
       "timestamp": "2025-10-23T12:53:55.162Z",
       "id": 2
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "draw",
+          "odds": 3.4,
+          "stake": 102,
+          "potentialPayout": 346.8
+        }
+      ],
+      "totalStake": 102,
+      "totalPotentialPayout": 346.8,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T14:32:40.849Z",
+      "id": 3
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "home",
+          "odds": 1.95,
+          "stake": 102,
+          "potentialPayout": 198.9
+        }
+      ],
+      "totalStake": 102,
+      "totalPotentialPayout": 198.9,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-23T14:33:05.295Z",
+      "id": 4
     }
   ]
 }

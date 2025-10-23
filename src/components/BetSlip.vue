@@ -6,10 +6,19 @@
         <h3 class="font-bold">Bet Placed Successfully!</h3>
         <p class="text-sm">Reference: #{{ betStore.betRef }}</p>
       </div>
-      <BetSlipItem v-for="sel in selections" :key="sel.gameId" :selection="sel" readonly />
+      <BetSlipItem
+        v-for="sel in betStore.lastSuccessfulSelections"
+        :key="sel.gameId"
+        :selection="sel"
+        readonly
+      />
       <div class="border-t pt-3 mt-3 text-lg font-bold">
-        <p>Total Stake: €{{ totalStake.toFixed(2) }}</p>
-        <p>Total Potential Payout: €{{ totalPotentialPayout.toFixed(2) }}</p>
+        <p>Total Stake: €{{ (betStore.lastSuccessfulBet?.totalStake ?? 0).toFixed(2) }}</p>
+        <p>
+          Total Potential Payout: €{{
+            (betStore.lastSuccessfulBet?.totalPotentialPayout ?? 0).toFixed(2)
+          }}
+        </p>
       </div>
       <button
         @click="placeAnother"

@@ -11,10 +11,19 @@ export const useBetSlipStore = defineStore('betSlip', () => {
   const success = ref<boolean>(false)
   const betRef = ref<string | null>(null)
   const errorMsg = ref<string>('')
+  const lastSuccessfulBet = ref<Bet | null>(null)
+  const lastSuccessfulSelections = ref<Selection[]>([])
 
   const addSelection = (gameId: string, betType: BetType, odds: number) => {
     const existingIndex = selections.value.findIndex((s) => s.gameId === gameId)
     if (existingIndex > -1) {
+      const existingSelection = selections.value[existingIndex]!
+
+      if (existingSelection.betType === betType) {
+        selections.value.splice(existingIndex, 1)
+        return
+      }
+
       selections.value.splice(existingIndex, 1)
     }
     if (selections.value.length >= 10) return
@@ -67,6 +76,14 @@ export const useBetSlipStore = defineStore('betSlip', () => {
         timestamp: new Date().toISOString(),
       }
       const { data } = await submitBet(betData)
+
+      lastSuccessfulBet.value = betData
+      lastSuccessfulSelections.value = selections.value
+
+      selections.value = []
+      stake.value = 10
+      acceptedTerms.value = false
+
       betRef.value = String(data.id)
       success.value = true
     } catch (err: unknown) {
@@ -86,6 +103,8 @@ export const useBetSlipStore = defineStore('betSlip', () => {
     acceptedTerms,
     submitting,
     success,
+    lastSuccessfulBet,
+    lastSuccessfulSelections,
     betRef,
     errorMsg,
     addSelection,
