@@ -1,23 +1,28 @@
 <template>
   <div
-    class="border border-gray-800 p-3 mb-3 rounded-lg flex justify-between items-center bg-gray-900/50 backdrop-blur-sm hover:bg-gray-900/70 transition-all duration-200 hover:border-cyan-500/50"
+    class="flex flex-col border border-gray-800 p-3 mb-3 rounded-lg bg-gray-900/50 backdrop-blur-sm hover:bg-gray-900/70 transition-all duration-200 hover:border-cyan-500/50"
   >
+    <div class="flex flex-1 items-center justify-between">
+      <p class="text-gray-400">{{ `${game?.homeTeam} - ${game?.awayTeam}` }}</p>
+      <button
+        v-if="!readonly"
+        @click="$emit('remove', selection.gameId)"
+        class="h-6 w-6 flex items-center justify-center text-red-600 text-sm hover:text-white transition-all duration-200 font-medium ml-3"
+      >
+        ✕
+      </button>
+    </div>
     <div class="flex-1">
-      <div class="font-semibold text-cyan-400">{{ outcomeText }}</div>
-      <div class="text-sm text-gray-400">@ {{ selection.odds.toFixed(2) }}</div>
-      <div v-if="!readonly" class="text-sm text-gray-500 mt-1">
-        Stake: €{{ selection.stake.toFixed(2) }} | Potential: €{{
-          selection.potentialPayout.toFixed(2)
-        }}
+      <div class="flex justify-between items-center gap-1">
+        <p class="text-cyan-400">{{ outcomeText }}</p>
+        <p class="shrink-0 text-xl mt-1 text-cyan-400 font-bold">
+          x {{ selection.odds.toFixed(2) }}
+        </p>
+      </div>
+      <div v-if="!readonly" class="text-sm text-gray-300">
+        Potential Payout: €{{ selection.potentialPayout.toFixed(2) }}
       </div>
     </div>
-    <button
-      v-if="!readonly"
-      @click="$emit('remove', selection.gameId)"
-      class="bg-red-600 text-white px-3 py-1.5 rounded-lg text-sm hover:bg-red-500 transition-all duration-200 font-medium ml-3"
-    >
-      Remove
-    </button>
   </div>
 </template>
 <script setup lang="ts">

@@ -14,7 +14,7 @@ export interface Game {
   status: 'upcoming' | 'live' | 'finished'
 }
 
-export type BetType = 'home' | 'draw' | 'away'
+export type BetType = 'homeWin' | 'draw' | 'awayWin'
 
 export interface Selection {
   gameId: string

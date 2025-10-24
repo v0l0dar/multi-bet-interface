@@ -15,48 +15,34 @@
         {{ game.status }}
       </span>
     </div>
-    <div class="font-semibold text-gray-200">{{ game.homeTeam }} vs {{ game.awayTeam }}</div>
-    <div class="text-sm text-gray-500">{{ new Date(game.startTime).toLocaleString() }}</div>
-    <div v-if="!isFinished && !isFull" class="flex gap-2 mt-3 flex-wrap">
-      <button
-        @click="addSelection('home', game.odds.homeWin)"
-        :class="[
-          'border px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200',
-          isSelected('home')
-            ? 'bg-linear-to-r from-cyan-600 to-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/30'
-            : 'bg-gray-800 hover:bg-gray-750 text-gray-300 border-gray-700 hover:border-cyan-500/50 hover:text-cyan-400',
-        ]"
-      >
-        {{ game.homeTeam }} ({{ game.odds.homeWin.toFixed(2) }})
-      </button>
-      <button
-        v-if="hasDraw"
-        @click="addSelection('draw', game.odds.draw!)"
-        :class="[
-          'border px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200',
-          isSelected('draw')
-            ? 'bg-linear-to-r from-cyan-600 to-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/30'
-            : 'bg-gray-800 hover:bg-gray-750 text-gray-300 border-gray-700 hover:border-cyan-500/50 hover:text-cyan-400',
-        ]"
-      >
-        Draw ({{ game.odds.draw?.toFixed(2) }})
-      </button>
-      <button
-        @click="addSelection('away', game.odds.awayWin)"
-        :class="[
-          'border px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200',
-          isSelected('away')
-            ? 'bg-linear-to-r from-cyan-600 to-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/30'
-            : 'bg-gray-800 hover:bg-gray-750 text-gray-300 border-gray-700 hover:border-cyan-500/50 hover:text-cyan-400',
-        ]"
-      >
-        {{ game.awayTeam }} ({{ game.odds.awayWin.toFixed(2) }})
-      </button>
+    <div class="flex gap-1 justify-between items-center">
+      <p class="font-semibold text-gray-200">{{ game.homeTeam }} vs {{ game.awayTeam }}</p>
+      <p class="text-sm text-gray-500">{{ new Date(game.startTime).toLocaleString() }}</p>
     </div>
-    <div v-else-if="isFinished" class="text-gray-500 mt-2 italic">
-      Betting closed for finished games
+    <!-- v-if="!isFinished && !isFull" -->
+    <div class="flex items-center justify-between gap-1 flex-wrap">
+      <div class="flex gap-3 mt-3 flex-wrap">
+        <template v-for="(oddValue, oddType, index) in game.odds" :key="game.id + oddType + index">
+          <button
+            v-if="oddValue"
+            @click="addSelection(oddType, oddValue)"
+            :disabled="isFinished || (isFull && !isSelected(oddType))"
+            :key="game.id + oddType + index"
+            :class="[
+              'border px-3 py-2 rounded-lg text-lg font-medium transition-all duration-200',
+              isSelected(oddType)
+                ? 'bg-linear-to-r from-cyan-600 to-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/30'
+                : 'bg-gray-800 hover:bg-gray-750 text-gray-300 border-gray-700 hover:border-cyan-500/50 hover:text-cyan-400',
+              'disabled:cursor-not-allowed! disabled:bg-gray-900 disabled:text-gray-500 disabled:border-gray-600',
+            ]"
+          >
+            {{ oddValue?.toFixed(2) }}
+          </button></template
+        >
+      </div>
+      <p v-if="isFinished" class="text-gray-500 italic">Betting closed for finished games</p>
+      <p v-else-if="isFull" class="text-red-400 italic">Bet slip is full (max 10 selections)</p>
     </div>
-    <div v-else class="text-red-400 mt-2 font-medium">Bet slip is full (max 10 selections)</div>
   </div>
 </template>
 
@@ -82,7 +68,6 @@ const addSelection = (betType: BetType, odds: number) => {
   betStore.addSelection(game.value.id, betType, odds)
 }
 
-const hasDraw = computed(() => !!game.value.odds.draw)
 const isFinished = computed(() => game.value.status === 'finished')
 const isFull = computed(() => betStore.selections.length >= 10)
 </script>

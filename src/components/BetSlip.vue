@@ -6,8 +6,16 @@
       'bg-gray-900 rounded-none p-0': isMobileView,
     }"
   >
-    <h2 v-if="!isMobileView" class="text-2xl font-bold mb-4 text-cyan-400">Bet Slip</h2>
-
+    <div class="flex items-center justify-between mb-4">
+      <h2 v-if="!isMobileView" class="text-2xl font-bold text-cyan-400">BetSlip</h2>
+      <button
+        @click="placeAnother"
+        v-if="selections.length"
+        class="ml-auto text-red-400 text-sm hover:text-white transition-all duration-200"
+      >
+        Remove All Bets
+      </button>
+    </div>
     <div
       v-if="betStore.success"
       class="border border-cyan-500/30 rounded-lg p-4 bg-cyan-900/20 backdrop-blur-sm"
@@ -17,9 +25,9 @@
         <p class="text-sm text-gray-400">Reference: #{{ betStore.betRef }}</p>
       </div>
       <BetSlipItem
-        v-for="sel in betStore.lastSuccessfulSelections"
-        :key="sel.gameId"
-        :selection="sel"
+        v-for="selection in betStore.lastSuccessfulSelections"
+        :key="selection.gameId"
+        :selection="selection"
         readonly
       />
       <div class="border-t border-gray-800 pt-3 mt-3 text-lg font-bold text-gray-200">
@@ -48,10 +56,7 @@
 
     <div
       v-else
-      :class="[
-        { 'p-4': !isMobileView },
-        'lg:max-h-[70vh] overflow-y-auto pr-2 lg:scrollbar-thin lg:scrollbar-thumb-gray-700 scrollbar-track-gray-900 no-scrollbar',
-      ]"
+      class="lg:max-h-[70vh] overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-gray-700 scrollbar-track-gray-900 no-scrollbar"
     >
       <div v-if="selections.length === 0" class="text-gray-500 italic mb-4 text-center py-8">
         No selections added yet
@@ -74,6 +79,16 @@
             max="1000"
             class="w-full border border-gray-800 bg-gray-900/50 text-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 hover:bg-gray-900"
           />
+          <div class="flex flex-wrap gap-1 justify-evenly my-3">
+            <button
+              v-for="(amount, key) in amounts"
+              :key="key"
+              @click="setAmount(amount)"
+              class="px-3 text-gray-300 bg-gray-800 hover:bg-gray-700 rounded-md transition-colors"
+            >
+              {{ amount }}
+            </button>
+          </div>
         </div>
         <div
           v-if="validationErrors.length > 0"
@@ -118,9 +133,9 @@
           v-if="selections.length > 0"
           class="border-t border-gray-800 pt-3 text-sm font-medium text-gray-300"
         >
-          <p>Total Stake: €{{ totalStake.toFixed(2) }}</p>
-          <p class="text-cyan-400">
-            Total Potential Payout: €{{ totalPotentialPayout.toFixed(2) }}
+          <p class="text-lg text-white">
+            Total Potential Payout:
+            <span class="text-xl text-cyan-400">€{{ totalPotentialPayout.toFixed(2) }}</span>
           </p>
         </div>
       </div>
@@ -141,6 +156,8 @@ interface Props {
 
 const props = defineProps<Props>()
 const emit = defineEmits<{ closeModal: [] }>()
+
+const amounts = [10, 50, 100, 500, 1000]
 
 const gamesStore = useGamesStore()
 const betStore = useBetSlipStore()
@@ -178,6 +195,10 @@ const placeAnother = () => {
   if (props.isMobileView) {
     emit('closeModal')
   }
+}
+
+const setAmount = (amount: number) => {
+  betStore.stake = amount
 }
 
 const submitAndClose = async () => {

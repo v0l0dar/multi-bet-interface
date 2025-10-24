@@ -395,6 +395,59 @@
       "acceptedTerms": true,
       "timestamp": "2025-10-23T19:34:39.358Z",
       "id": 10
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "away",
+          "odds": 3.8,
+          "stake": 10,
+          "potentialPayout": 38
+        },
+        {
+          "gameId": "g-016",
+          "betType": "away",
+          "odds": 2.75,
+          "stake": 10,
+          "potentialPayout": 27.5
+        }
+      ],
+      "totalStake": 20,
+      "totalPotentialPayout": 65.5,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-24T07:36:13.170Z",
+      "id": 11
+    },
+    {
+      "selections": [
+        {
+          "gameId": "g-001",
+          "betType": "draw",
+          "odds": 3.4,
+          "stake": 10,
+          "potentialPayout": 34
+        },
+        {
+          "gameId": "g-002",
+          "betType": "away",
+          "odds": 2.4,
+          "stake": 10,
+          "potentialPayout": 24
+        },
+        {
+          "gameId": "g-003",
+          "betType": "home",
+          "odds": 2.1,
+          "stake": 10,
+          "potentialPayout": 21
+        }
+      ],
+      "totalStake": 30,
+      "totalPotentialPayout": 79,
+      "acceptedTerms": true,
+      "timestamp": "2025-10-24T07:47:06.612Z",
+      "id": 12
     }
   ]
 }
