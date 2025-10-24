@@ -7,7 +7,7 @@
       {{ store.error }}
     </div>
 
-    <div class="container mx-auto pt-4 px-4 md:pt-6 md:px-6">
+    <div class="container mx-auto pt-4 px-4 md:px-6">
       <div class="flex flex-col lg:grid lg:grid-cols-3 lg:gap-8 gap-4">
         <div class="lg:col-span-2 order-1">
           <GameFilters />
