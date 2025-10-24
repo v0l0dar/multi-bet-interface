@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-950">
+  <div class="min-h-screen max-h-screen bg-gray-950">
     <div
       v-if="store.error"
       class="bg-red-900/30 border border-red-500/50 text-red-300 px-4 py-3 rounded m-4 backdrop-blur-sm transition-all duration-300"
@@ -8,13 +8,13 @@
     </div>
 
     <div class="container mx-auto pt-4 px-4 md:px-6">
-      <div class="flex flex-col lg:grid lg:grid-cols-3 lg:gap-8 gap-4">
+      <div class="flex flex-col lg:grid lg:grid-cols-3 lg:gap-4 gap-4">
         <div class="lg:col-span-2 order-1">
           <GameFilters />
           <GameList />
         </div>
 
-        <div class="hidden lg:block lg:col-span-1 order-2">
+        <div class="hidden lg:block lg:col-span-1 order-2 lg:h-[95dvh]">
           <BetSlip />
         </div>
       </div>
@@ -55,10 +55,10 @@
         ></div>
 
         <div
-          class="absolute bottom-0 left-0 right-0 h-4/5 bg-gray-900 rounded-t-2xl shadow-2xl overflow-y-auto pt-5 flex flex-col transition-transform duration-300 border-t border-gray-800"
+          class="absolute bottom-0 left-0 right-0 h-[95%] bg-gray-900 rounded-t-2xl shadow-2xl overflow-y-auto pt-5 flex flex-col transition-transform duration-300 border-t border-gray-800"
         >
           <div
-            class="p-4 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-gray-900/95 backdrop-blur-lg z-10 shadow-sm"
+            class="px-4 pb-4 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-gray-900/95 backdrop-blur-lg z-10 shadow-sm"
           >
             <h2 class="text-xl font-bold text-cyan-400">Your BetSlip</h2>
             <button

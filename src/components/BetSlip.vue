@@ -1,12 +1,12 @@
 <template>
   <div
     :class="{
-      'md:top-6 bg-gray-900/50 backdrop-blur-lg rounded-xl shadow-lg shadow-cyan-500/10 border border-gray-800 p-4 md:p-6 transition-all duration-300':
+      'lg:h-full lg:flex lg:flex-col md:top-6 bg-gray-900/50 backdrop-blur-lg rounded-xl shadow-lg shadow-cyan-500/10 border border-gray-800 p-4 transition-all duration-300':
         !isMobileView,
       'bg-gray-900 rounded-none p-0': isMobileView,
     }"
   >
-    <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center justify-between mb-4 lg:shrink-0">
       <h2 v-if="!isMobileView" class="text-2xl font-bold text-cyan-400">BetSlip</h2>
       <button
         @click="placeAnother"
@@ -16,9 +16,10 @@
         Remove All Bets
       </button>
     </div>
+
     <div
       v-if="betStore.success"
-      class="border border-cyan-500/30 rounded-lg p-4 bg-cyan-900/20 backdrop-blur-sm"
+      class="border border-cyan-500/30 rounded-lg p-4 bg-cyan-900/20 backdrop-blur-sm lg:flex-1 lg:min-h-0 lg:overflow-y-auto no-scrollbar"
     >
       <div class="bg-cyan-500/20 p-3 rounded-lg mb-4 border border-cyan-500/30">
         <h3 class="font-bold text-cyan-400">Bet Placed Successfully!</h3>
@@ -54,20 +55,24 @@
       </button>
     </div>
 
-    <div
-      v-else
-      class="lg:max-h-[70vh] overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-gray-700 scrollbar-track-gray-900 no-scrollbar"
-    >
+    <div v-else class="lg:flex-1 lg:min-h-0 lg:flex lg:flex-col">
       <div v-if="selections.length === 0" class="text-gray-500 italic mb-4 text-center py-8">
         No selections added yet
       </div>
-      <BetSlipItem
-        v-for="sel in selections"
-        :key="sel.gameId"
-        :selection="sel"
-        @remove="betStore.removeSelection(sel.gameId)"
-      />
-      <div v-if="selections.length > 0" class="mt-4 space-y-3">
+
+      <div
+        v-if="selections.length > 0"
+        class="h-[264px] overflow-y-auto lg:flex-1 lg:min-h-0 no-scrollbar"
+      >
+        <BetSlipItem
+          v-for="sel in selections"
+          :key="sel.gameId"
+          :selection="sel"
+          @remove="betStore.removeSelection(sel.gameId)"
+        />
+      </div>
+
+      <div v-if="selections.length > 0" class="mt-4 space-y-3 lg:shrink-0 lg:overflow-y-auto">
         <div>
           <label class="block text-sm font-medium mb-2 text-cyan-400"
             >Stake per selection (€)</label
@@ -116,7 +121,7 @@
           :class="[
             'w-full py-3 rounded-lg font-medium transition-all duration-200 transform',
             isValid && !betStore.submitting
-              ? 'bg-linear-to-r from-cyan-600 to-cyan-500 text-white hover:from-cyan-500 hover:to-cyan-400 shadow-lg shadow-cyan-500/30 hover:scale-[1.02]'
+              ? 'bg-linear-to-r from-cyan-600 to-cyan-500 text-white hover:from-cyan-500 hover:to-cyan-400 shadow-lg shadow-cyan-500/30'
               : 'bg-gray-800 text-gray-500 cursor-not-allowed',
           ]"
         >
