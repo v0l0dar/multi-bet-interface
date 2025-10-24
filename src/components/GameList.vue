@@ -7,9 +7,9 @@
     <div v-else-if="store.filteredGames.length === 0" class="text-gray-500 text-center py-4">
       No games match the filters
     </div>
-    <template v-else>
+    <div v-else class="h-[84dvh] overflow-auto no-scrollbar">
       <GameItem v-for="game in store.filteredGames" :key="game.id" :game="game" />
-    </template>
+    </div>
   </div>
 </template>
 <script setup lang="ts">

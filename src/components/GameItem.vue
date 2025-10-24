@@ -5,11 +5,7 @@
     <div class="flex justify-between items-center mb-2">
       <h3 class="font-bold text-cyan-400">{{ game.sport }}</h3>
       <span
-        :class="{
-          'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30': game.status === 'upcoming',
-          'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30': game.status === 'live',
-          'bg-gray-700/50 text-gray-400 border border-gray-600/30': game.status === 'finished',
-        }"
+        :class="classStatus"
         class="px-2 py-1 rounded text-sm font-medium transition-all duration-200"
       >
         {{ game.status }}
@@ -17,9 +13,10 @@
     </div>
     <div class="flex gap-1 justify-between items-center">
       <p class="font-semibold text-gray-200">{{ game.homeTeam }} vs {{ game.awayTeam }}</p>
-      <p class="text-sm text-gray-500">{{ new Date(game.startTime).toLocaleString() }}</p>
+      <p class="text-sm text-gray-500 text-right">
+        {{ new Date(game.startTime).toLocaleString() }}
+      </p>
     </div>
-    <!-- v-if="!isFinished && !isFull" -->
     <div class="flex items-center justify-between gap-1 flex-wrap">
       <div class="flex gap-3 mt-3 flex-wrap">
         <template v-for="(oddValue, oddType, index) in game.odds" :key="game.id + oddType + index">
@@ -70,4 +67,9 @@ const addSelection = (betType: BetType, odds: number) => {
 
 const isFinished = computed(() => game.value.status === 'finished')
 const isFull = computed(() => betStore.selections.length >= 10)
+const classStatus = computed(() => ({
+  'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30': game.value.status === 'upcoming',
+  'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30': game.value.status === 'live',
+  'bg-gray-700/50 text-gray-400 border border-gray-600/30': game.value.status === 'finished',
+}))
 </script>

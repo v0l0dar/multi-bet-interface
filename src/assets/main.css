@@ -2,6 +2,10 @@
 button {
   @apply cursor-pointer;
 }
+html,
+body {
+  @apply bg-gray-950;
+}
 @theme {
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -12,4 +16,28 @@ button {
 .no-scrollbar {
   -ms-overflow-style: none; /* IE и Edge */
   scrollbar-width: none; /* Firefox */
+}
+/* Transitions */
+.betslip-enter-from {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.betslip-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+.betslip-enter-active {
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.betslip-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.betslip-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.betslip-leave-active {
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
 }

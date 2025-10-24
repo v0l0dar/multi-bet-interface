@@ -44,8 +44,8 @@ const game = computed(() => gamesStore.games.find((g) => g.id === props.selectio
 const outcomeText = computed(() => {
   if (!game.value) return 'Unknown game'
   const { betType } = props.selection
-  if (betType === 'home') return `${game.value.homeTeam} Win`
-  if (betType === 'away') return `${game.value.awayTeam} Win`
+  if (betType === 'homeWin') return `${game.value.homeTeam} Win`
+  if (betType === 'awayWin') return `${game.value.awayTeam} Win`
   return 'Draw'
 })
 </script>

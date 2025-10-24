@@ -7,7 +7,7 @@
       {{ store.error }}
     </div>
 
-    <div class="container mx-auto p-4 md:p-6 pb-20 md:pb-6">
+    <div class="container mx-auto pt-4 px-4 md:pt-6 md:px-6">
       <div class="flex flex-col lg:grid lg:grid-cols-3 lg:gap-8 gap-4">
         <div class="lg:col-span-2 order-1">
           <GameFilters />
@@ -47,33 +47,33 @@
         </div>
       </button>
     </div>
-
-    <div v-if="isMobileBetSlipOpen" class="lg:hidden fixed inset-0 z-50 flex flex-col">
-      <div
-        class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
-        @click="isMobileBetSlipOpen = false"
-      ></div>
-
-      <div
-        class="absolute bottom-0 left-0 right-0 h-4/5 bg-gray-900 rounded-t-2xl shadow-2xl overflow-y-auto pt-10 flex flex-col transition-transform duration-300 border-t border-gray-800"
-      >
+    <Transition name="betslip">
+      <div v-if="isMobileBetSlipOpen" class="lg:hidden fixed inset-0 z-50 flex flex-col">
         <div
-          class="p-4 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-gray-900/95 backdrop-blur-lg z-10 shadow-sm"
-        >
-          <h2 class="text-xl font-bold text-cyan-400">Your Bet Slip</h2>
-          <button
-            @click="isMobileBetSlipOpen = false"
-            class="text-2xl font-light text-gray-400 hover:text-cyan-400 transition-colors duration-200"
-          >
-            &times;
-          </button>
-        </div>
+          class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300"
+          @click="isMobileBetSlipOpen = false"
+        ></div>
 
-        <div class="flex-1 p-4 overflow-y-auto no-scrollbar">
-          <BetSlip is-mobile-view @close-modal="isMobileBetSlipOpen = false" />
-        </div>
-      </div>
-    </div>
+        <div
+          class="absolute bottom-0 left-0 right-0 h-4/5 bg-gray-900 rounded-t-2xl shadow-2xl overflow-y-auto pt-5 flex flex-col transition-transform duration-300 border-t border-gray-800"
+        >
+          <div
+            class="p-4 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-gray-900/95 backdrop-blur-lg z-10 shadow-sm"
+          >
+            <h2 class="text-xl font-bold text-cyan-400">Your BetSlip</h2>
+            <button
+              @click="isMobileBetSlipOpen = false"
+              class="text-2xl font-light text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+            >
+              &times;
+            </button>
+          </div>
+
+          <div class="flex-1 p-4 overflow-y-auto no-scrollbar">
+            <BetSlip is-mobile-view @close-modal="isMobileBetSlipOpen = false" />
+          </div>
+        </div></div
+    ></Transition>
   </div>
 </template>
 

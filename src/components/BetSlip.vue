@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'md:sticky md:top-6 bg-gray-900/50 backdrop-blur-lg rounded-xl shadow-lg shadow-cyan-500/10 border border-gray-800 p-4 md:p-6 transition-all duration-300':
+      'md:top-6 bg-gray-900/50 backdrop-blur-lg rounded-xl shadow-lg shadow-cyan-500/10 border border-gray-800 p-4 md:p-6 transition-all duration-300':
         !isMobileView,
       'bg-gray-900 rounded-none p-0': isMobileView,
     }"
